@@ -1,0 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+	background-color: #006400;
+}
+
+h3,h1 {
+	text-align: center;
+    color: white;
+}
+
+header {
+    
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+#cart-icon img {
+    width: 1em;
+    height: 1em;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+	color: white;
+}
+
+#cart-icon:hover img {
+    opacity: 1;
+	color:white;
+}
+
+
+#banner {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+ #banner .swiper-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+#banner img,
+.carousel img {
+    max-width: 33%;
+    min-height: 100%;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    user-select: none;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+#destaques {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#destaques {
+    display: flex;
+    flex-direction: column;
+}
+
+#destaques .destaque {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+#destaques .destaque h3 {
+    margin: 10px 0 5px;
+}
+
+#destaques .destaque img {
+    width: 75%;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid #333;
+    box-sizing: border-box;
+}
+.menu-bar {
+           
+            
+            text-align: center;
+            padding: 10px;
+        }
+
+        .menu-bar a {
+          
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+      
+		ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: green;
+}

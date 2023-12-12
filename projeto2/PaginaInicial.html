@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="PaginaInicial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <title>Pizzaria Delícia</title>
+</head>
+<body>
+<div class="dropdown">
+    <div>
+        <ul>
+            <li><a class="active" href="PaginaInicial.html">Home</a></li>
+            <li><a href="cadastro.html">Faça seu cadastro</a></li>
+            <li><a href="indexpaginaprodutos.html">Cardápio</a></li>
+            <li style="float:right"><a href="Carrinho.html"><i style="font-size:20px" class="fa fa-cart-plus"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<h1>Pizzaria Delícia</h1>
+
+<section id="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://img77.uenicdn.com/image/upload/v1544727685/service_images/shutterstock_513055858.jpg" alt="Pizza 1">
+				<img src="https://blog.praticabr.com/wp-content/uploads/2023/06/margherita-1024x682.jpg" alt="Pizza 2">
+				<img src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3280082:1680382338/Pizza.jpg?f=16x9&h=720&w=1280&$p$f$h$w=ded1a45%201020w" alt="Pizza3">
+				
+				
+			</div>
+            <div class="swiper-slide">
+                <img src="https://melhorde10.com/wp-content/uploads/2021/03/melhores-receitas-de-pizza.jpg" alt="Pizza 1">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwizxlFwDqQ6zux23HDMnys87iwcFluYl7Vp6repZkBkS7KcNyb7VjxLO22LH1Xmqkg8E&usqp=CAU" alt="Pizza2">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIymXm0kDClzl-1S-yZNDHwFF3-cf3oHGtToPlN6Qs0r-LKyyz13fCqyRVTCJFoek9BOw&usqp=CAU" alt="Pizza3">
+            </div>
+            <div class="swiper-slide">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiDKtyd_6cCs35tbTBih9_NDeILuEn5Vk4hD80Qk2TxRwNHDphOtse51S3Rlr8ABDFOqI&usqp=CAU" alt="Pizza1">
+                <img src="https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg" alt="Pizza 2">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqt1CjIVfE3iZ3DaZoe0xK5yO0LkMaIJTc4S32gfxeKSG8lfSF9ebMzUSnNbAtUBvcWe4&usqp=CAU" alt="Pizza3">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
+<section id="destaques">
+    <h3>Produtos em destaque</h3>
+    <div class="destaque">
+        <div class="destaque">
+            <img src="https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg" alt="Destaque 1">
+            <p>R$25,00</p>
+        </div>
+        <div class="destaque">
+            <img src="https://melhorde10.com/wp-content/uploads/2021/03/melhores-receitas-de-pizza.jpg" alt="Destaque 2">
+            <p>R$15,00</p>
+        </div>
+    </div>
+</section>
+
+<footer id="contato">
+    <h3>Contato</h3>
+    <p>Endereço: Rua da Pizzaria, 123</p>
+    <p>Telefone: (11) 1234-5678</p>
+    <p>Email: contato@pizzariadelicia.com</p>
+</footer>
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 2500,
+                },
+            });
+        });
+    </script>
+</body>
+</html>

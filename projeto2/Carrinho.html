@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Carrinho de Compras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .cart-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+    .remove-button, .add-button {
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Carrinho de Compras</h1>
+  <div id="cartItems"></div>
+  <p id="cartTotal">Total: R$ 0.00</p>
+
+  <input type="text" id="cupomInput" placeholder="Digite o cupom de desconto">
+  <button onclick="aplicarCupom()">Aplicar Cupom</button>
+
+  <button onclick="verificarCadastroEFinalizarCompra()">Finalizar Compra</button> <!-- Novo botão -->
+
+  <a href="indexpaginaprodutos.html">Voltar para o Cardápio</a>
+
+  <script>
+    function displayCart() {
+      var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      var cartItemsElement = document.getElementById('cartItems');
+      var cartTotalElement = document.getElementById('cartTotal');
+
+      cartItemsElement.innerHTML = '';
+
+      var total = 0;
+
+      cart.forEach(function(item, index) {
+        var cartItemElement = document.createElement('div');
+        cartItemElement.classList.add('cart-item');
+        cartItemElement.innerHTML = `<p>${item.name} - R$ ${item.price.toFixed(2)} <span class="remove-button" onclick="removeFromCart(${index})">-</span> <span class="add-button" onclick="addToCartAgain(${index})">+</span></p>`;
+        cartItemsElement.appendChild(cartItemElement);
+
+        total += item.price;
+      });
+
+      cartTotalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+    function removeFromCart(index) {
+      var cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    function addToCartAgain(index) {
+      var cart = JSON.parse(localStorage.getItem('cart')) || [];
+      var item = cart[index];
+      cart.push(item);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    function aplicarCupom() {
+      var cupomInput = document.getElementById('cupomInput').value;
+      if (cupomInput === 'UTFPR') {
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        var total = 0;
+        cart.forEach(function(item) {
+          total += item.price;
+        });
+        var desconto = total * 0.15;
+        total -= desconto;
+        var cartTotalElement = document.getElementById('cartTotal');
+        cartTotalElement.textContent = `Total com desconto: R$ ${total.toFixed(2)}`;
+      } else {
+        alert('Cupom inválido');
+      }
+    }
+
+    function verificarCadastroEFinalizarCompra() {
+
+      var nomeInput = document.getElementById("nome");
+      var emailInput = document.getElementById("email");
+      var cpfInput = document.getElementById("cpf");
+      var cepInput = document.getElementById("cep");
+      var dataNascimentoInput = document.getElementById("dataNascimento");
+      var senhaInput = document.getElementById("senha");
+
+      if (!nomeInput.value || !emailInput.value || !cpfInput.value || !cepInput.value || !dataNascimentoInput.value || !senhaInput.value) {
+        alert("Você precisa estar cadastrado para finalizar a compra. Preencha todos os campos do cadastro.");
+        return;
+      }
+
+      var usuarioCadastrado = true;
+
+      if (usuarioCadastrado) {
+        finalizarCompra();
+      } else {
+        alert('Você precisa estar cadastrado para finalizar a compra.');
+      }
+    }
+
+    function finalizarCompra() {
+      var cart = JSON.parse(localStorage.getItem('cart')) || [];
+      localStorage.removeItem('cart');
+      displayCart();
+      alert('Compra finalizada com sucesso! Obrigado por comprar conosco.');
+    }
+
+    displayCart();
+
+    
+  </script>
+</body>
+</html>
